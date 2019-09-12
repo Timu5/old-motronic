@@ -6,6 +6,8 @@ ORG START
 
 mov IEN0, #0 ; disable interupts
 
+call long ; long pulse
+
 ;r0 -> bit counter
 ;r2 -> lower counter
 ;r3 -> upper counter
@@ -20,6 +22,8 @@ upper_loop:
 	acall dump_byte
 	inc DPTR
 	djnz r3, upper_loop
+
+call long ; long pulse
 	
 loop:
 	sjmp loop ; inifity loop
@@ -37,16 +41,16 @@ dump_byte:
 		anl A, #1
 		cjne A, #0, one_bit
 			; bit is zero
-			mov P1, #0
+			clr P57 ; P5.7 HIGH
 			acall wait
-			mov P1, #255
+			setb p57 ; P5.7 LOW
 			sjmp end_bit
 		one_bit:
 			; bit is one
-			mov P1, #0
+			clr P57 ; P5.7 HIGH
 			acall wait
 			acall wait
-			mov P1, #255
+			setb p57 ; P5.7 LOW
 		end_bit:
 	
 		mov A, B
@@ -54,6 +58,18 @@ dump_byte:
 			
 		djnz r0, bit_by_bit
 	ret
+	
+long:
+	clr P57 ; P5.7 HIGH
+	acall wait
+	acall wait
+	acall wait
+	acall wait
+	acall wait
+	acall wait
+	acall wait
+	acall wait
+	setb p57 ; P5.7 LOW
 
 wait:
 	mov r4, #255

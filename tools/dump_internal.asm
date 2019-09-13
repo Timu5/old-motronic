@@ -2,9 +2,12 @@ $INCLUDE(MCU/80C515.mcu)
 
 START CODE 86A0H
 
+PIN EQ P57
+
 ORG START
 
 mov IEN0, #0 ; disable interupts
+mov SCON, #0 ; disable serial
 
 call long ; long pulse
 
@@ -41,16 +44,16 @@ dump_byte:
 		anl A, #1
 		cjne A, #0, one_bit
 			; bit is zero
-			clr P57 ; P5.7 HIGH
+			clr PIN ; HIGH
 			acall wait
-			setb p57 ; P5.7 LOW
+			setb PIN ; LOW
 			sjmp end_bit
 		one_bit:
 			; bit is one
-			clr P57 ; P5.7 HIGH
+			clr PIN ; HIGH
 			acall wait
 			acall wait
-			setb p57 ; P5.7 LOW
+			setb PIN ; LOW
 		end_bit:
 	
 		mov A, B
@@ -60,7 +63,7 @@ dump_byte:
 	ret
 	
 long:
-	clr P57 ; P5.7 HIGH
+	clr PIN ; HIGH
 	acall wait
 	acall wait
 	acall wait
@@ -69,7 +72,7 @@ long:
 	acall wait
 	acall wait
 	acall wait
-	setb p57 ; P5.7 LOW
+	setb PIN ; LOW
 
 wait:
 	mov r4, #255

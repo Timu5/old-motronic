@@ -90,12 +90,6 @@ Wire Wire Line
 	2650 3950 2650 4050
 Wire Wire Line
 	6900 2500 6900 2300
-Wire Wire Line
-	5800 3200 6500 3200
-Wire Wire Line
-	6500 3300 5800 3300
-Wire Wire Line
-	5800 3400 6500 3400
 $Comp
 L power:GND #PWR0105
 U 1 1 5D8A47AA
@@ -141,8 +135,6 @@ Wire Wire Line
 	7400 3400 7300 3400
 Text GLabel 2650 3250 0    50   Input ~ 0
 A8
-Text GLabel 6400 3500 0    50   Input ~ 0
-A8
 Text GLabel 2650 3450 0    50   Input ~ 0
 A9
 Text GLabel 6400 3600 0    50   Input ~ 0
@@ -167,8 +159,6 @@ Text GLabel 6400 4100 0    50   Input ~ 0
 A14
 Text GLabel 3850 3450 2    50   Input ~ 0
 A14
-Text GLabel 6400 4200 0    50   Input ~ 0
-A15
 Text GLabel 3850 3250 2    50   Input ~ 0
 A15
 Wire Wire Line
@@ -185,8 +175,6 @@ Wire Wire Line
 	6500 4000 6400 4000
 Wire Wire Line
 	6400 4100 6500 4100
-Wire Wire Line
-	6500 4200 6400 4200
 Text GLabel 3850 2950 2    50   Input ~ 0
 ALE
 Text GLabel 2650 2950 0    50   Input ~ 0
@@ -224,16 +212,6 @@ F 3 "74xx/74hc573.pdf" H 5300 3200 50  0001 C CNN
 	1    5300 3200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6500 3100 5800 3100
-Wire Wire Line
-	5800 3000 6500 3000
-Wire Wire Line
-	6500 2900 5800 2900
-Wire Wire Line
-	5800 2800 6500 2800
-Wire Wire Line
-	6500 2700 5800 2700
 Text GLabel 4700 2700 0    50   Input ~ 0
 AD0
 Text GLabel 4700 2800 0    50   Input ~ 0
@@ -292,16 +270,8 @@ Wire Wire Line
 	3750 3850 3850 3850
 Text GLabel 2650 2850 0    50   Input ~ 0
 OE
-Text GLabel 6400 4500 0    50   Input ~ 0
-OE
 Wire Wire Line
 	6900 4700 6900 4900
-Text GLabel 6400 4400 0    50   Input ~ 0
-EN
-Wire Wire Line
-	6500 4400 6400 4400
-Wire Wire Line
-	6400 4500 6500 4500
 Text GLabel 2650 3150 0    50   Input ~ 0
 AD0
 Text GLabel 2650 3350 0    50   Input ~ 0
@@ -355,4 +325,108 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc0015.pdf" H 6900 3600 50
 	1    6900 3600
 	1    0    0    -1  
 $EndComp
+Text GLabel 6000 4500 0    50   Input ~ 0
+A15
+$Comp
+L power:+5V #PWR03
+U 1 1 5D902818
+P 6000 3950
+F 0 "#PWR03" H 6000 3800 50  0001 C CNN
+F 1 "+5V" H 6015 4123 50  0000 C CNN
+F 2 "" H 6000 3950 50  0001 C CNN
+F 3 "" H 6000 3950 50  0001 C CNN
+	1    6000 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 4400 6000 4500
+Wire Wire Line
+	6400 2700 6500 2700
+Wire Wire Line
+	6500 2800 6400 2800
+Wire Wire Line
+	6400 2900 6500 2900
+Wire Wire Line
+	6500 3000 6400 3000
+Wire Wire Line
+	6400 3100 6500 3100
+Wire Wire Line
+	6500 3200 6400 3200
+Wire Wire Line
+	6500 3400 6400 3400
+Wire Wire Line
+	6500 3300 6400 3300
+Text GLabel 6400 3500 0    50   Input ~ 0
+A8
+Text GLabel 6400 2700 0    50   Input ~ 0
+A0
+Text GLabel 6400 2800 0    50   Input ~ 0
+A1
+Text GLabel 6400 2900 0    50   Input ~ 0
+A2
+Text GLabel 6400 3000 0    50   Input ~ 0
+A3
+Text GLabel 6400 3100 0    50   Input ~ 0
+A4
+Text GLabel 6400 3200 0    50   Input ~ 0
+A5
+Text GLabel 6400 3300 0    50   Input ~ 0
+A6
+Text GLabel 6400 3400 0    50   Input ~ 0
+A7
+Text GLabel 5900 2700 2    50   Input ~ 0
+A0
+Text GLabel 5900 2800 2    50   Input ~ 0
+A1
+Text GLabel 5900 2900 2    50   Input ~ 0
+A2
+Text GLabel 5900 3000 2    50   Input ~ 0
+A3
+Text GLabel 5900 3100 2    50   Input ~ 0
+A4
+Text GLabel 5900 3200 2    50   Input ~ 0
+A5
+Text GLabel 5900 3300 2    50   Input ~ 0
+A6
+Text GLabel 5900 3400 2    50   Input ~ 0
+A7
+Wire Wire Line
+	5800 2700 5900 2700
+Wire Wire Line
+	5800 2800 5900 2800
+Wire Wire Line
+	5900 2900 5800 2900
+Wire Wire Line
+	5800 3000 5900 3000
+Wire Wire Line
+	5900 3100 5800 3100
+Wire Wire Line
+	5800 3200 5900 3200
+Wire Wire Line
+	5900 3300 5800 3300
+Wire Wire Line
+	5800 3400 5900 3400
+Wire Wire Line
+	6400 4500 6500 4500
+Text GLabel 6400 4500 0    50   Input ~ 0
+OE
+Text GLabel 6400 4400 0    50   Input ~ 0
+ROM_EN
+Wire Wire Line
+	6500 4400 6400 4400
+$Comp
+L Jumper:SolderJumper_3_Open JP?
+U 1 1 5D94D339
+P 6000 4200
+F 0 "JP?" V 6046 4268 50  0000 L CNN
+F 1 "256/512" V 5955 4268 50  0000 L CNN
+F 2 "" H 6000 4200 50  0001 C CNN
+F 3 "~" H 6000 4200 50  0001 C CNN
+	1    6000 4200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6000 4000 6000 3950
+Wire Wire Line
+	6150 4200 6500 4200
 $EndSCHEMATC
